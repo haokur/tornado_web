@@ -3,6 +3,6 @@
 import tornado.web
 
 # @routerGet('/')
-class IndexCtrl(tornado.web.RequestHandler):
+class IndexMainCtrl(tornado.web.RequestHandler):
     def get(self):
         self.render('app/index.html')

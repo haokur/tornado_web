@@ -1,5 +1,7 @@
-from controllers.index_ctrl import IndexCtrl
+from controllers.index_ctrl import IndexMainCtrl
+from controllers.article_ctrl import ArticleListCtrl
 
 WebRoutes = [
-    (r'/', IndexCtrl)
+    (r'/', ArticleListCtrl),
+    (r'/article/list', ArticleListCtrl)
 ]

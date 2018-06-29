@@ -2,7 +2,9 @@
 
 
 {% block main %}
-        <div>
-            this is content
-        </div>
+        {% for atc in articles %}
+            {{ atc[0] }}<br>
+            {{ atc[1] }}<br>
+            {{ atc[2] }}<br>
+        {% end %}
 {% end %}
