@@ -1,7 +1,8 @@
-#coding=utf-8
+# coding=utf-8
 
-from models.user_model import UserModel
+import tornado.web
 
-def IndexCtrl():
-  UserModel()
-  print 'hello from index controller'
+# @routerGet('/')
+class IndexCtrl(tornado.web.RequestHandler):
+    def get(self):
+        self.render('app/index.html')
