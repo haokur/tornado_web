@@ -10,16 +10,16 @@
     <li class="article-item card">
         <h3>{{atc[1]}}</h3>
         <div class="article-timebar">
-            <span><b>分类:</b>{{atc[0]}}</span>
-            <span><b>作者:</b>{{atc[0]}}</span>
-            <span><b>发表时间:</b>{{atc[0]}}</span>
-            <span><b>浏览数:</b>{{atc[0]}}</span>
+            <span><b>分类:</b>{{atc[4]}}</span>
+            <span><b>作者:</b>{{atc[5]}}</span>
+            <span><b>发表时间:</b>{{atc[3]}}</span>
+            <span><b>浏览数:</b>{{atc[6]}}</span>
         </div>
         <div class="article-content">
         {{atc[2]}}
         </div>
         <div>
-            <a href="#" class="article-seemore btn btn-primary">查看详情</a>
+            <a href="article/read/{{atc[0]}}" class="article-seemore btn btn-primary">查看详情</a>
         </div>
     </li>
     {% end %}

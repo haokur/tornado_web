@@ -15,11 +15,18 @@ class ArticleListCtrl(tornado.web.RequestHandler):
     @tornado.web.asynchronous
     @tornado.gen.coroutine
     def get(self):
-        articles = yield self.application.db.execute(
-            "select id,title,description from articles limit 10"
-        )
-        # for atc in articles:
-        #     print(atc)
+        sql_key = [
+            'id',
+            'title',
+            'description',
+            'created_at',
+            'category_id',
+            'author_id',
+            'views_num'
+        ]
+        sql_key_str = ','.join(sql_key)
+        sql_key_str = "select " + sql_key_str + " from articles limit 10"
+        articles = yield self.application.db.execute(sql_key_str)
         self.render(
             'app/index.html',
             articles=articles
@@ -29,8 +36,19 @@ class ArticleListCtrl(tornado.web.RequestHandler):
 # 文章详情
 # @RouterGet('/article/read/1')
 class ArticleDetailCtrl(tornado.web.RequestHandler):
-    def get(self):
-        self.write('文章详情页')
+    @tornado.web.asynchronous
+    @tornado.gen.coroutine
+    def get(self, input):
+        article_id = input[::-1]
+        query_article_sql = "select * from articles where id=" + article_id
+        queryed_article = yield self.application.db.execute(query_article_sql)
+        article_info = ()
+        for val in queryed_article:
+            article_info = val
+        self.render(
+            'app/article_detail.html',
+            article_info=article_info
+        )
 
 
 # 添加文章

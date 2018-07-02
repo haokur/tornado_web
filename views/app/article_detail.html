@@ -1,0 +1,17 @@
+
+{% extends "../layouts/app.layout.html" %}
+
+{% block main %}
+    <div class="card article-item">
+        <h3>{{article_info[1]}}</h3>
+        <div class="article-timebar">
+            <span><b>分类:</b>{{article_info[1]}}</span>
+            <span><b>作者:</b>{{article_info[1]}}</span>
+            <span><b>发表时间:</b>{{article_info[1]}}</span>
+            <span><b>浏览数:</b>{{article_info[1]}}</span>
+        </div>
+        <div class="article-content">
+            {{article_info[1]}}
+        </div>
+    </div>
+{% end %}
