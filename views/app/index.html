@@ -2,9 +2,27 @@
 
 
 {% block main %}
-        {% for atc in articles %}
-            {{ atc[0] }}<br>
-            {{ atc[1] }}<br>
-            {{ atc[2] }}<br>
-        {% end %}
+
+
+<!-- 文章列表 -->
+<ul class="article-list">
+    {% for atc in articles %}
+    <li class="article-item card">
+        <h3>{{atc[1]}}</h3>
+        <div class="article-timebar">
+            <span><b>分类:</b>{{atc[0]}}</span>
+            <span><b>作者:</b>{{atc[0]}}</span>
+            <span><b>发表时间:</b>{{atc[0]}}</span>
+            <span><b>浏览数:</b>{{atc[0]}}</span>
+        </div>
+        <div class="article-content">
+        {{atc[2]}}
+        </div>
+        <div>
+            <a href="#" class="article-seemore btn btn-primary">查看详情</a>
+        </div>
+    </li>
+    {% end %}
+</ul>
+
 {% end %}

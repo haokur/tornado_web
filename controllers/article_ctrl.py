@@ -15,7 +15,11 @@ class ArticleListCtrl(tornado.web.RequestHandler):
     @tornado.web.asynchronous
     @tornado.gen.coroutine
     def get(self):
-        articles = yield self.application.db.execute("select title,content,id from articles limit 10")
+        articles = yield self.application.db.execute(
+            "select id,title,description from articles limit 10"
+        )
+        # for atc in articles:
+        #     print(atc)
         self.render(
             'app/index.html',
             articles=articles

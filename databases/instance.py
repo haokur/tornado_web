@@ -24,6 +24,7 @@ def get_mysql_instance():
             port=Mysql_config['port'],
             user=Mysql_config['user'],
             password=Mysql_config['password'],
-            db=Mysql_config['database']
+            db=Mysql_config['database'],
+            charset='utf8'
         )
     )
